@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
 
+[assembly: CollectionBehavior(DisableTestParallelization = true)]
+
 namespace ConsoleApp.Tests
 {
     public class Startup
