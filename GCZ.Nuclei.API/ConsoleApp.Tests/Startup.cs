@@ -27,9 +27,7 @@ namespace ConsoleApp.Tests
             services.AddPersistence();
 
             services.AddDbContext<NucleiDbContext>(options =>
-                options.UseInMemoryDatabase("inMemoryDb"),
-                ServiceLifetime.Transient,
-                ServiceLifetime.Transient
+                options.UseInMemoryDatabase("inMemoryDb")
             );
         }
     }

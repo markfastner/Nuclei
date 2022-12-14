@@ -44,4 +44,4 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Error
 
         return true;
     }
-}
+} 

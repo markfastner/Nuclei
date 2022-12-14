@@ -254,7 +254,7 @@ namespace ConsoleApp.Tests.Registration
                     LastName: "Test",
                     Birthday: DateTime.UtcNow
                 ),
-                Email: "valid@email.com",
+                Email: "valido@email.com",
                 Password: "Test123@"
             );
 

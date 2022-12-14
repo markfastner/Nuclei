@@ -54,7 +54,7 @@ namespace Services.Auth
 
         public bool ClearPrincipal()
         {
-            if (!_principal!.Identity.IsAuthenticated) return false;
+            if (_principal is null || !_principal.Identity.IsAuthenticated) return false;
 
             _principal = null;
 

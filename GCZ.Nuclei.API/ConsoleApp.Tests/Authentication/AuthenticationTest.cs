@@ -82,6 +82,8 @@ namespace ConsoleApp.Tests.Authentication
             //logins and returns account id and email, then is taken to a user home view on the front end side
             var response = await accountManager.Login(request) as AccountManagerResponse;
 
+            _authProvider.ClearPrincipal();
+
             //assert
             Assert.NotNull(response);
             Assert.IsType<AccountManagerResponse>(response);
@@ -106,8 +108,6 @@ namespace ConsoleApp.Tests.Authentication
             //act
             var authProvider = _autoMock.Create<IAuthProvider>();
             var accountManager = new AccountManagerController(_fixture.Mediator, _fixture.Mapper, authProvider);
-
-            //logins and returns account id and email, then is taken to a user home view on the front end side
             var result = await accountManager.Login(request) as List<Error>;
 
             //assert
@@ -140,6 +140,8 @@ namespace ConsoleApp.Tests.Authentication
 
             //logins but the OTP is incorrect
             var result = await accountManager.Login(request) as List<Error>;
+
+            _authProvider.ClearPrincipal();
 
             //assert
             Assert.NotNull(result);
