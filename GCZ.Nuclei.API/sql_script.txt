@@ -1,0 +1,36 @@
+create table Log
+(
+    LogId     int identity
+        primary key,
+    Timestamp datetime      not null,
+    LogLevel  tinyint       not null,
+    Operation varchar(50)   not null,
+    Category  varchar(50)   not null,
+    Message   varchar(5000) not null
+)
+go
+
+create table [User]
+(
+    UserId    int identity
+        primary key,
+    FirstName varchar(50) not null,
+    LastName  varchar(50) not null,
+    Birthday  date        not null
+)
+go
+
+create table Account
+(
+    UserId      int          not null
+        constraint FK_Account_User
+            references [User],
+    Email       varchar(50)  not null
+        constraint AK_Account_Email
+            unique,
+    Password    varchar(100) not null,
+    AccountId int identity
+        constraint PK_Account
+            primary key
+)
+go
