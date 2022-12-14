@@ -120,6 +120,7 @@ namespace ConsoleApp.Tests.Authorization
             //fetches user data
             var account = await accountManager.Login(request) as AccountManagerResponse;
             var response = await accountController.Get(account!.AccountId) as AccountResponse;
+            _authProvider.ClearPrincipal();
 
             //assert
             Assert.NotNull(response);
@@ -161,6 +162,7 @@ namespace ConsoleApp.Tests.Authorization
             );
             var result = await userController.Update(updateUser) as CommandResponse;        //performs update on user
             var updatedUser = await userController.Get(user.User.UserId) as UserResponse;       //now retrieve updated user data
+            _authProvider.ClearPrincipal();
 
             //assert
             Assert.NotNull(result);
@@ -225,6 +227,7 @@ namespace ConsoleApp.Tests.Authorization
             //fetches user data
             var account = await accountManager.Login(request) as AccountManagerResponse;
             var result = await userController.GetAll() as List<Error>;       //try getting all result after logging in
+            _authProvider.ClearPrincipal();
 
             //assert
             Assert.NotNull(account);
@@ -260,6 +263,7 @@ namespace ConsoleApp.Tests.Authorization
             //fetches user data and attempt to delete an account, which is unauthorized to normal users
             var account = (await accountManager.Login(request) as AccountManagerResponse)!;
             var result = await accountController.Delete(account.AccountId) as List<Error>;
+            _authProvider.ClearPrincipal();
 
             //assert
             Assert.NotNull(account);
