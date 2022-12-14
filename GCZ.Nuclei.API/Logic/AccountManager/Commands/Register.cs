@@ -14,19 +14,16 @@ public record RegisterCommand(
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AccountManagerResult>>
 {
-    private readonly IAuthProvider _authProvider;
     private readonly IPasswordHasher _passwordHasher;
     private readonly IAccountRepository _accountRepository;
     private readonly IUserRepository _userRepository;
 
     public RegisterCommandHandler(
-        IAuthProvider authProvider, 
         IAccountRepository accountRepository,
         IUserRepository userRepository,
         IPasswordHasher passwordHasher
     )
     {
-        _authProvider = authProvider;
         _passwordHasher = passwordHasher;
         _accountRepository = accountRepository;
         _userRepository = userRepository;

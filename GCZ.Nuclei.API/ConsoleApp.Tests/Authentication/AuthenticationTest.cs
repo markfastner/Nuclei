@@ -90,7 +90,7 @@ namespace ConsoleApp.Tests.Authentication
 
         //User submits invalid username.
         [Fact]
-        public async void AuthenticationTest_ReturnsFailureCase_3()
+        public async void AuthenticationTest_ReturnsFailureCase_1()
         {
             //assemble
             _authProvider.ClearAttempts();
@@ -121,7 +121,7 @@ namespace ConsoleApp.Tests.Authentication
 
         //User submits invalid OTP.
         [Fact]
-        public async void AuthenticationTest_ReturnsFailureCase_4()
+        public async void AuthenticationTest_ReturnsFailureCase_2()
         {
             //assemble
             _authProvider.ClearAttempts();
@@ -152,7 +152,7 @@ namespace ConsoleApp.Tests.Authentication
 
         //User submits invalid password.
         [Fact]
-        public async void AuthenticationTest_ReturnsFailureCase_5()
+        public async void AuthenticationTest_ReturnsFailureCase_3()
         {
             //assemble
             _authProvider.ClearAttempts();
@@ -183,7 +183,7 @@ namespace ConsoleApp.Tests.Authentication
 
         //User submits valid security credentials for a disabled account.
         [Fact]
-        public async void AuthenticationTest_ReturnsFailureCase_6()
+        public async void AuthenticationTest_ReturnsFailureCase_4()
         {
             //assemble
             _authProvider.ClearAttempts();

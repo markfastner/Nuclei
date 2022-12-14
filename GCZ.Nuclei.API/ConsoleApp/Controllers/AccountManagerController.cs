@@ -31,7 +31,9 @@ namespace ConsoleApp.Controllers
             var result = await _mediator.Send(query);
 
             Console.WriteLine("Enter OTP: ");
-            
+
+            if (result.IsError) return result.Errors;
+
             //reassign result as an error if OTP was invalid; consequently returns error response
             if (!_authProvider.ValidateOTP(Console.ReadLine()!)) result = DomainErrors.Authentication.InvalidCredentials;
 

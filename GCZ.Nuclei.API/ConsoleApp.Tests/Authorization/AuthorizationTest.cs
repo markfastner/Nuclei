@@ -174,7 +174,7 @@ namespace ConsoleApp.Tests.Authorization
 
         //User attempts to access a protected functionality outside of authorization scope.
         [Fact]
-        public async void AuthorizationTest_ReturnsFailureCase_2()
+        public async void AuthorizationTest_ReturnsFailureCase_1()
         {
             //assemble
             _authProvider.ClearAttempts();
@@ -204,7 +204,7 @@ namespace ConsoleApp.Tests.Authorization
 
         //User attempts to access protected data outside of authorization scope.
         [Fact]
-        public async void AuthorizationTest_ReturnsFailureCase_3()
+        public async void AuthorizationTest_ReturnsFailureCase_2()
         {
             //assemble
             _authProvider.ClearAttempts();
@@ -239,7 +239,7 @@ namespace ConsoleApp.Tests.Authorization
 
         //User attempts to modify protected data outside of authorization scope.
         [Fact]
-        public async void AuthorizationTest_ReturnsFailureCase_4()
+        public async void AuthorizationTest_ReturnsFailureCase_3()
         {
             //assemble
             _authProvider.ClearAttempts();
